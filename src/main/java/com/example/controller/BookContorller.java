@@ -1,4 +1,4 @@
-package com.controller;
+package com.example.controller;
 
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +12,11 @@ public class BookContorller {
 
     @GetMapping
     public String getById(){
+        System.out.println("springBoot is running....");
+        return "springBoot is running....";
+    }
+    @RequestMapping("/one")
+    public String getById1(){
         System.out.println("springBoot is running....");
         return "springBoot is running....";
     }
