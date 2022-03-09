@@ -15,6 +15,8 @@ public class BookContorller {
         System.out.println("springBoot is running....");
         return "springBoot is running....";
     }
+
+
     @RequestMapping("/one")
     public String getById1(){
         System.out.println("springBoot is running....");
