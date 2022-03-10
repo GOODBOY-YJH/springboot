@@ -1,6 +1,7 @@
 package com.example.controller;
 
 
+import com.example.domain.MyDateSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
@@ -31,9 +32,12 @@ public class BookContorller {
     private String tempDir;
 
     // 使用自动装配将所有的数据封装到一个对象environment中
-
     @Autowired
     private Environment environment;
+
+    // 用于封装的模型类
+    @Autowired
+    private MyDateSource myDateSource;
 
     @GetMapping
     public String getById(){
@@ -45,6 +49,7 @@ public class BookContorller {
     @RequestMapping("/one")
     public String getById1(){
         System.out.println("springBoot is running...."+ country + " " + name + " " + like + " " + usersName+ " " + tempDir);
+        System.out.println("myDataSource==================>" + myDateSource);
         return "springBoot is running....";
     }
 

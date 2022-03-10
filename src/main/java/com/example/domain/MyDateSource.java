@@ -1,6 +1,16 @@
 package com.example.domain;
 
-public class DateSource {
+
+
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
+
+//  定义数据模型封装ymal对应的数据
+// 定义为spring管控的bean
+@Component
+// 指定加载数据
+@ConfigurationProperties(prefix = "datasource")
+public class MyDateSource {
     private String driver;
     private String url;
     private String username;
