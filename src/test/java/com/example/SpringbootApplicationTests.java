@@ -26,8 +26,9 @@ class SpringbootApplicationTests {
 
     @Test
     void accountTest(){
-        Account ac = this.account.getById(1);
+        Account ac = account.selectById(1);
         System.out.println(ac);
+        System.out.println(account.selectList(null));
     }
 
 

@@ -11,7 +11,11 @@ spring:
 
 
 
-
+# 设置Mp相关的配置
+#mybatis-plus:
+#  global-config:
+#    db-config:
+#      table-prefix: tbl_
 
 
 
