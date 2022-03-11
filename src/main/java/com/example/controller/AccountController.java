@@ -1,6 +1,7 @@
 package com.example.controller;
 
 
+import com.example.controller.utils.R;
 import com.example.domain.Account;
 import com.example.service.IAccountService;
 import com.sun.org.apache.xpath.internal.operations.Bool;
@@ -12,26 +13,27 @@ import java.util.List;
 @RestController
 @RequestMapping("/accounts")
 public class AccountController {
+
     @Autowired
     private IAccountService accountService;
 
     @GetMapping
-    public List<Account> getAll(){
-        return accountService.list();
+    public R getAll(){
+        return new R(true, accountService.list());
     }
 
     @PostMapping
-    public Boolean save(@RequestBody Account account){
-        return accountService.save(account);
+    public R save(@RequestBody Account account){
+        return new R(accountService.save(account));
     }
 
     @DeleteMapping("{id}")
-    public Boolean delete(@PathVariable Integer id){
-        return accountService.removeById(id);
+    public R delete(@PathVariable Integer id){
+        return new R(accountService.removeById(id));
     }
     @GetMapping("{id}")
-    public Account getById(@PathVariable Integer id){
-        return accountService.getById(id);
+    public R getById(@PathVariable Integer id){
+        return new R(true, accountService.getById(id));
     }
 
 }
