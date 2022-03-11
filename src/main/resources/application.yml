@@ -23,11 +23,14 @@ spring:
 
 
 
-# 设置Mp相关的配置
-#mybatis-plus:
-#  global-config:
-#    db-config:
-#      table-prefix: tbl_
+# #设置Mp相关的配置
+mybatis-plus:
+  global-config:
+    db-config:
+      table-prefix: # tbl_  设置数据库前缀
+      id-type: auto   # 设置使用数据库自增策略
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 
 
