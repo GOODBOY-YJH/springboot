@@ -1,5 +1,7 @@
 package com.example;
+import com.example.dao.AccountDao;
 import com.example.dao.BookDao;
+import com.example.domain.Account;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,6 +19,17 @@ class SpringbootApplicationTests {
         // 执行需要测试的对象方法
         bookDao.save();
     }
+
+
+    @Autowired
+    private AccountDao account;
+
+    @Test
+    void accountTest(){
+        Account ac = this.account.getById(1);
+        System.out.println(ac);
+    }
+
 
 
 }
