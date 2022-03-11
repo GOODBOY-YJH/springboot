@@ -28,6 +28,7 @@ public class AccountController2 {
     public Boolean delete(@PathVariable Integer id){
         return accountService.removeById(id);
     }
+
     @GetMapping("{id}")
     public Account getById(@PathVariable Integer id){
         return accountService.getById(id);
