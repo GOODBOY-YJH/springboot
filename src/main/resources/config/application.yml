@@ -1,0 +1,91 @@
+server:
+  port: 80
+
+# 配置数据库信息
+#spring:
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://localhost/test
+#    username: root
+#    password: a520520a
+#    type: com.alibaba.druid.pool.DruidDataSource   # 整合型配法
+
+
+# druid专用
+spring:
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost/test
+      username: root
+      password: a520520a
+
+
+
+
+# #设置Mp相关的配置
+mybatis-plus:
+  global-config:
+    db-config:
+      table-prefix: # tbl_  设置数据库前缀
+      id-type: auto   # 设置使用数据库自增策略
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+
+
+
+
+
+
+datasource:
+  driver: com.mysql.cj.jdbc.Driver
+  url: jdbc:mysql://localhost/test
+  username: root
+  password: a520520a
+  likes:
+    - music
+    - game
+
+
+likes: [music, game]
+
+user:
+  name: zhangsan
+  age: 18
+
+user1:
+  name: zhangsan
+  age: 18
+
+users:
+  - name: zhangsan
+    age: 18
+  - name: lisi
+    age: 18
+
+
+users2:
+  -
+    name: zhangsan
+    age: 18
+  -
+    name: lisi
+    age: 18
+
+users3: [{name:zhangsan, age:18}, {name:lisi, age:18}]
+
+country: 中国
+
+
+baseDir: c:\windows
+
+
+tempDir: c:\windows\temp
+#使用属性名方式引用数据
+tempDir1: ${baseDir}\temp
+
+#创建类封装数据
+# 使用spring帮我们去加载数据到对象，一定要告诉spring加载这组信息1
+# 使用时候从spring中之间获取信息使用
