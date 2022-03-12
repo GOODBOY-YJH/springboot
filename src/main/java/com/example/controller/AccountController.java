@@ -44,10 +44,20 @@ public class AccountController {
         return new R(true, accountService.updateById(account));
     }
 
+    // @GetMapping("/{currentPage}/{pageSize}")
+    // public R getPage(@PathVariable Integer currentPage,@PathVariable Integer pageSize){
+    //     IPage<Account> page = new Page(currentPage, pageSize);
+    //     // 如果当前页码值大于了总页码值 那么重新执行查询操作 使用最大页码值作为当前页码值
+    //     return new R(true, accountService.page(page, null));
+    // }
+
     @GetMapping("/{currentPage}/{pageSize}")
-    public R getPage(@PathVariable Integer currentPage,@PathVariable Integer pageSize){
-        System.out.println(currentPage + pageSize);
-        IPage<Account> page = new Page(currentPage, pageSize);
-        return new R(true, accountService.page(page, null));
+    public R getPage(@PathVariable Integer currentPage,@PathVariable Integer pageSize, String name){
+        IPage<Account> page = accountService.getPage(currentPage, pageSize, name);
+        // 如果当前页码值大于了总页码值 那么重新执行查询操作 使用最大页码值作为当前页码值
+        if(currentPage > page.getPages()){
+            page = accountService.getPage((int) page.getPages(), pageSize, name);
+        }
+        return new R(true,page);
     }
 }
