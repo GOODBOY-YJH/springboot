@@ -35,5 +35,9 @@ public class AccountController {
     public R getById(@PathVariable Integer id){
         return new R(true, accountService.getById(id));
     }
+    @PutMapping
+    public R getById(@RequestBody Account account){
+        return new R(true, accountService.updateById(account));
+    }
 
 }
