@@ -43,6 +43,13 @@ mybatis-plus:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 
+testcase:
+  account:
+    id: ${random.int}
+    id2: ${random.int(10)}
+    name: ${random.value}
+    money: ${random.int}
+
 
 
 

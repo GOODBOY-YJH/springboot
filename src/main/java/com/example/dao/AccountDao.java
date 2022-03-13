@@ -16,4 +16,5 @@ import org.apache.ibatis.annotations.Select;
 // mybatis-plus
 @Mapper
 public interface AccountDao extends BaseMapper<Account> {
+
 }

@@ -6,19 +6,32 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.dao.AccountDao;
 import com.example.dao.BookDao;
 import com.example.domain.Account;
+import com.example.testcase.domain.AccountTest;
 import org.apache.logging.log4j.util.Strings;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Rollback;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @SpringBootTest(classes = SpringbootApplication.class)
+@Transactional
+@Rollback(value = true)
 class SpringbootApplicationTests {
 
     // 注入要测试的对象
     @Autowired
     private BookDao bookDao;
+
+    @Autowired
+    private AccountTest accountTest;
+
+    @Test
+    void test(){
+        System.out.println(accountTest);
+    }
 
     @Test
     void contextLoads() {
@@ -41,7 +54,7 @@ class SpringbootApplicationTests {
     @Test
     void accountSave(){
         Account ac = new Account();
-        ac.setName("aaa");
+        ac.setName("aaa3");
         ac.setMoney(10000);
         account.insert(ac);
     }
