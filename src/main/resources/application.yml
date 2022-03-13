@@ -43,6 +43,7 @@ datasource:
   url: jdbc:mysql://localhost/test
   username: root
   password: a520520a
+  port: 547
   likes:
     - music
     - game
