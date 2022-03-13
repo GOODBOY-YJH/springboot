@@ -1,3 +1,4 @@
+
 server:
   port: 80
 
@@ -19,6 +20,15 @@ spring:
       url: jdbc:mysql://localhost/test
       username: root
       password: a520520a
+# 配热部署相关配置
+  devtools:
+    restart:
+      # 设置不参与热部署的文件或文件夹
+      exclude: static/**,public/**,config/application.yml
+      enabled: false
+# 多环境配置 根据环境名配置
+  profiles:
+    active: dev
 
 
 

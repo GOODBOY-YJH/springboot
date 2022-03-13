@@ -27,7 +27,6 @@ public class AccountController {
     @PostMapping
     public R save(@RequestBody Account account){
         boolean flag = accountService.save(account);
-
         return new R(flag, flag == true ? "添加成功^_^":"添加失败#_#");
     }
 
@@ -53,6 +52,7 @@ public class AccountController {
 
     @GetMapping("/{currentPage}/{pageSize}")
     public R getPage(@PathVariable Integer currentPage,@PathVariable Integer pageSize, String name){
+        System.out.println("笨比");
         IPage<Account> page = accountService.getPage(currentPage, pageSize, name);
         // 如果当前页码值大于了总页码值 那么重新执行查询操作 使用最大页码值作为当前页码值
         if(currentPage > page.getPages()){
